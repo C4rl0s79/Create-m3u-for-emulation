@@ -16,7 +16,7 @@ foreach ($dir in $dirs) {
         foreach ($file in $files) {
             $decodedFileName = [System.Text.Encoding]::UTF8.GetString([System.Text.Encoding]::Default.GetBytes($file.Name))
             Write-Host "Checking file:" $decodedFileName
-            if ($decodedFileName -match ".*\(Disc [1-9][0-9]?\).*\.chd$") {
+            if ($decodedFileName -match ".*\(Disc [1-9][0-9]?\).*\..+$") {
                 Write-Host "File meets the condition:" $decodedFileName
                 $createM3U = $true
                 $discName = $decodedFileName
